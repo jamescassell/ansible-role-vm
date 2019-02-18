@@ -1,0 +1,19 @@
+---
+# defaults file for vm
+
+# which vm-creation backend to use
+vm_type: libvirt
+
+# hypervisor that will run the VM
+vm_host: localhost
+
+# name of the created instance
+vm_name: "{{ inventory_hostname }}"
+
+# hardware specs
+vm_cpu_cores: 2
+vm_memory: 1280
+vm_disk_size: 8
+
+# acceptable values from `osinfo-query os`
+vm_os_variant: rhel7.6

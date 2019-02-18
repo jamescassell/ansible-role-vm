@@ -1,0 +1,16 @@
+---
+# tasks file for vm
+
+- name: block for 'apply' on ansible < 2.7
+  block:
+  - name: include vm-creation role
+    include_role:
+      name: libvirt-vm
+  delegate_to: "{{ vm_host }}"
+  vars:
+    libvirt_vm_name: "{{ vm_name }}"
+    libvirt_vm_cpu_cores: "{{ vm_cpu_cores }}"
+    libvirt_vm_memory: "{{ vm_memory }}"
+    libvirt_vm_disk_size: "{{ vm_disk_size }}"
+    libvirt_vm_os_variant: "{{ vm_os_variant }}"
+  when: vm_type == 'libvirt'
