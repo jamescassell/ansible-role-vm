@@ -28,6 +28,9 @@ Example Playbook
       - role: vm
         vm_host: virthost
         vm_os_variant: rhel7.6
+        vm_cpu_cores: 4
+        vm_memory: 4096
+        vm_disk_size: 16
 
 License
 -------
