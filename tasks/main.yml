@@ -14,3 +14,16 @@
     libvirt_vm_disk_size: "{{ vm_disk_size }}"
     libvirt_vm_os_variant: "{{ vm_os_variant }}"
   when: vm_type == 'libvirt'
+
+- name: block for 'apply' on ansible < 2.7
+  block:
+  - name: include vm-creation role
+    include_role:
+      name: openstack-vm
+  delegate_to: "{{ vm_host }}"
+  vars:
+    openstack_vm_name: "{{ vm_name }}"
+    openstack_vm_memory: "{{ vm_memory }}"
+    openstack_vm_disk_size: "{{ vm_disk_size }}"
+    openstack_vm_image: "{{ vm_image }}"
+  when: vm_type == 'openstack'

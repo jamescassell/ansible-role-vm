@@ -17,3 +17,6 @@ vm_disk_size: 8
 
 # acceptable values from `osinfo-query os`
 vm_os_variant: rhel7.6
+
+# existing image to clone
+vm_image: "{{ omit }}"
